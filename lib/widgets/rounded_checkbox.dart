@@ -10,8 +10,10 @@ import '../utils/colors.dart';
 class RoundedCheckBox extends StatelessWidget {
   MainViewModel vm;
   final int index;
+  final Color color;
+  final bool check;
 
-  RoundedCheckBox({Key? key, required this.vm, required this.index}) : super(key: key);
+  RoundedCheckBox({Key? key, required this.vm, required this.index, required this.color, required this.check}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,10 @@ class RoundedCheckBox extends StatelessWidget {
         height: 31.h,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: vm.check[index] ? whiteColor : whiteColor,
+            color: color,
             border: Border.all(color: greyColor, width: 1.w)),
         child: Center(
-            child: vm.check[index]
+            child: check
                 ? Icon(
               Icons.lens,
               color: primaryColor,

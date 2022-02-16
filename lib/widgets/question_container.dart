@@ -12,7 +12,7 @@ class QuestionContainerWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: secondaryColor,
+        color: primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(10.w)),
         border: Border.all(color: whiteColor, width: 1.w)
       ),
