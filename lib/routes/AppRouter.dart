@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../screens/auth/auth_screen.dart';
 import '../screens/main/main_screen.dart';
+import '../screens/questions_completed_page.dart';
 import '../screens/splash_screen.dart';
 import 'RoutesNames.dart';
 import 'RoutingData.dart';
@@ -32,6 +33,9 @@ class AppRouter {
 
       case RouteName.MAIN:
         return _getPageRoute(MainPage(), settings);
+
+      case RouteName.COMPLETE:
+        return _getPageRoute(CompletedQuestionsPage(), settings);
 
       default:
         return _getPageRoute(MainPage(), settings);

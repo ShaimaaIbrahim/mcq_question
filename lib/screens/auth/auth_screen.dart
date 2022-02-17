@@ -32,14 +32,21 @@ class AuthScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        heightSpace(30.h),
+                        heightSpace(100.h),
+                        Center(
+                            child: Image.asset('assets/icons/exam.png', width: 100.w, height: 100.h,)),
+                        heightSpace(50.h),
                         bold16Text('Name'),
                         heightSpace(5.h),
                         StyledTextField(obsecure: false, controller: _nameController, hint: 'Enter Name',),
                         heightSpace(30.h),
                         StyledButton(text : 'submit', function: (){
+                          if(_nameController.text.isNotEmpty){
+                            locator<NavigationService>().navigateTo(RouteName.MAIN);
+                          }else{
+                            showSnackBar('Name is Empty', context);
+                          }
 
-                          locator<NavigationService>().navigateTo(RouteName.MAIN);
                         }, child: bold18Text('submit', color: whiteColor),)
                       ],
                     ),

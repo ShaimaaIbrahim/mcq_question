@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:exam_app/screens/BaseScreen.dart';
 import 'package:exam_app/screens/main/question_page.dart';
 import 'package:exam_app/screens/main/viewmodel/main_viewmodel.dart';
@@ -6,6 +8,8 @@ import 'package:exam_app/utils/constants.dart';
 import 'package:exam_app/utils/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../models/questions.dart';
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -16,12 +20,14 @@ class MainPage extends StatelessWidget {
     PageController controller = PageController(
     );
 
+    //this expression to correct list of questions in random order----
+    getAllQuestions().shuffle();
     List<Widget> _list = <Widget>[
-      QuestionPage(controller: controller, question: getAllQuestions()[0], index: 0),
-      // QuestionPage(controller: controller,  question: getAllQuestions()[1],index: 1,),
-      // QuestionPage(controller: controller,  question: getAllQuestions()[2], index: 2,),
-      // QuestionPage(controller: controller,  question: getAllQuestions()[3], index: 3,),
-      // QuestionPage(controller: controller,  question: getAllQuestions()[4], index: 4,)
+      QuestionPage(controller: controller, question: getAllQuestions()[0], pageIndex: 0),
+      QuestionPage(controller: controller,  question: getAllQuestions()[1],pageIndex: 1,),
+      QuestionPage(controller: controller,  question: getAllQuestions()[2], pageIndex: 2,),
+      QuestionPage(controller: controller,  question: getAllQuestions()[3], pageIndex: 3,),
+      QuestionPage(controller: controller,  question: getAllQuestions()[4], pageIndex : 4,)
     ];
 
 return BaseScreen<MainViewModel>(
