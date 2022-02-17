@@ -22,7 +22,8 @@ class MainViewModel extends BaseViewModel {
   }
 
   changeState(int index, int pageIndex) {
-    this.resultIndex = index;
+    resultIndex = index;
+    question = getAllQuestions()[pageIndex];
     notifyListeners();
     for (int i = 0; i < check.length; i++) {
       check[i] = false;
@@ -33,6 +34,16 @@ class MainViewModel extends BaseViewModel {
       colors[i] = whiteColor;
     }
     colors[index] = Colors.orange;
+    if (question!.results![index] == question!.correct) {
+      result++;
+      notifyListeners();
+    }
+    notifyListeners();
+  }
+
+  void finishState() {
+    check[resultIndex!] = false;
+    colors[resultIndex!] = whiteColor;
     notifyListeners();
   }
 

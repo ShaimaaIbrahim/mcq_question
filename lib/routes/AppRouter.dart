@@ -33,9 +33,9 @@ class AppRouter {
 
       case RouteName.MAIN:
         return _getPageRoute(MainPage(), settings);
-
-      case RouteName.COMPLETE:
-        return _getPageRoute(CompletedQuestionsPage(), settings);
+      //
+      // case RouteName.COMPLETE:
+      //   return _getPageRoute(CompletedQuestionsPage(), settings);
 
       default:
         return _getPageRoute(MainPage(), settings);

@@ -22,13 +22,6 @@ class MainPage extends StatelessWidget {
 
     //this expression to correct list of questions in random order----
     getAllQuestions().shuffle();
-    List<Widget> _list = <Widget>[
-      QuestionPage(controller: controller, question: getAllQuestions()[0], pageIndex: 0),
-      QuestionPage(controller: controller,  question: getAllQuestions()[1],pageIndex: 1,),
-      QuestionPage(controller: controller,  question: getAllQuestions()[2], pageIndex: 2,),
-      QuestionPage(controller: controller,  question: getAllQuestions()[3], pageIndex: 3,),
-      QuestionPage(controller: controller,  question: getAllQuestions()[4], pageIndex : 4,)
-    ];
 
 return BaseScreen<MainViewModel>(
   builder: (_, vm , child){
@@ -48,7 +41,13 @@ return BaseScreen<MainViewModel>(
       ),
       body: SafeArea(
         child:  PageView(
-          children: _list,
+          children: [
+            QuestionPage(controller: controller, question: getAllQuestions()[0], pageIndex: 0, vm: vm,),
+            QuestionPage(controller: controller,  question: getAllQuestions()[1],pageIndex: 1, vm: vm,),
+            QuestionPage(controller: controller,  question: getAllQuestions()[2], pageIndex: 2, vm: vm,),
+            QuestionPage(controller: controller,  question: getAllQuestions()[3], pageIndex: 3, vm: vm,),
+            QuestionPage(controller: controller,  question: getAllQuestions()[4], pageIndex : 4, vm: vm,)
+          ],
           scrollDirection: Axis.horizontal,
           reverse: true,
           physics: NeverScrollableScrollPhysics(),
